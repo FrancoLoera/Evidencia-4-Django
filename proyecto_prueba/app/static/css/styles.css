@@ -1,0 +1,12 @@
+body {
+    font-family: 'Poppins';
+}
+
+h1 {
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.box-colored {
+    background-color: #EFEFEF;
+}

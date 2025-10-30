@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es" translate="no">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://1/cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Crear Producto</title>
+</head>
+<body>
+    <main class="container vh-100 d-flex align-items-center justify-content-center">
+        <div class="p-5 box-colored w-100 rounded-3 text-center shadow">        
+            <h1 class="mb-4">Crear Producto</h1>
+            <form method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-4 d-flex flex-column">
+                        <label class="form-label" for="nombre">Nombre:</label>
+                        <input class="form-control" type="text" name="nombre"><br>
+                    </div>
+                    <div class="col-4 d-flex flex-column">
+                        <label class="form-label" for="precio">Precio:</label>
+                        <input class="form-control" type="text" name="precio"><br>
+                    </div>
+                    <div class="col-4 d-flex flex-column">
+                        <label class="form-label" for="descripcion">Nombre:</label>
+                        <textarea class="form-control" name="descripcion"></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
