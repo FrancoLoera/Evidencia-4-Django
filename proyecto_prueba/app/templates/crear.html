@@ -14,21 +14,22 @@
     <title>Crear Producto</title>
 </head>
 <body>
-    <main class="container vh-100 d-flex align-items-center justify-content-center">
-        <div class="p-5 box-colored w-100 rounded-3 text-center shadow">        
-            <h1 class="mb-4">Crear Producto</h1>
+    <main class="container vh-100 d-flex flex-column align-items-center justify-content-center">
+        <h1>Crear Producto</h1>
+        <a class="text-decoration-none btn btn-success mt-4 mb-3 align-self-center" href="{% url 'listar' %}">Ver Produtos</a>
+        <div class="p-5 rounded-3 text-center shadow">        
             <form method="post">
                 {% csrf_token %}
-                <div class="row">
-                    <div class="col-4 d-flex flex-column">
+                <div class="row d-flex flex-column">
+                    <div class="col-4 d-flex">
                         <label class="form-label" for="nombre">Nombre:</label>
                         <input class="form-control" type="text" name="nombre"><br>
                     </div>
-                    <div class="col-4 d-flex flex-column">
+                    <div class="col-4 d-flex">
                         <label class="form-label" for="precio">Precio:</label>
                         <input class="form-control" type="text" name="precio"><br>
                     </div>
-                    <div class="col-4 d-flex flex-column">
+                    <div class="col-4 d-flex">
                         <label class="form-label" for="descripcion">Nombre:</label>
                         <textarea class="form-control" name="descripcion"></textarea>
                     </div>
