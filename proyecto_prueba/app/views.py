@@ -28,9 +28,16 @@ def editar_producto(request, id):
         producto.nombre = request.POST['nombre']
         producto.precio = request.POST['precio']
         producto.descripcion = request.POST['descripcion']
+        
+        categoria_id = request.POST['categoria']
+        
+        if categoria_id:
+            producto.categoria = Categoria.objects.get(id=categoria_id)
+        
         producto.save()
         return redirect('listar')
-    return render(request, 'editar.html', {'producto': producto})
+    categorias = Categoria.objects.all()
+    return render(request, 'editar.html', {'producto': producto, 'categorias': categorias})
 
 def eliminar_producto(request, id):
     producto = get_object_or_404(Producto, id=id)
