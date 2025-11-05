@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Crear Categoría{% endblock %}
+
+{% block content %}
+<main class="container vh-100 d-flex flex-column align-items-center justify-content-center">
+    <div>
+        <h1>Registrar Categoría</h1>
+        <a class="text-decoration-none btn btn-success mt-4 mb-3 align-self-center" href="{% url 'listar-categorias' %}">Ver Categorías</a>
+        <form class="p-4 rounded-3 shadow" method="post">
+            {% csrf_token %}
+            <div class="row display-flex">
+                <div class="col-12 mb-3">
+                    <div><label class="form-label fw-bold" for="nombre">Nombre:</label></div>
+                    <div><input class="form-control" type="text" name="nombre" maxlength="100" required></div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="es" translate="no">
+<head>
+    {% include "partials/head.html" %}
+    <title>{% block title %}Título{% endblock %}</title>
+</head>
+<body>
+    <header class="position-absolute top-0 start-0 w-100" style="z-index: 10;">
+        {% include "partials/navbar.html" %}
+    </header>
+    {% block content %}{% endblock %}
+</body>
+</html>
