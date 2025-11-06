@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Crear Contacto{% endblock %}
+
+{% block content %}
+<main class="vh-100 d-flex align-items-center gato-bg">
+    <div class="container rounded-3 d-flex flex-column align-items-center">
+        <h1 class="bg-light d-inline-block fw-bold fs-3 rounded-5 ps-5 pe-5 pt-2 pb-2 m-0 title-box" style="border: 4px solid #a74e70; color: #a74e70;"><i class="bi bi-telephone-fill fs-3 me-2"></i>LISTA DE CONTACTOS</h1>
+        <a class="rounded add-button text-decoration-none fw-medium mt-5" style="padding: 6px 9px;" href=""><i class="fa-solid fa-plus me-2"></i>Agregar Contacto</a>
+
+        <div class="form-container">
+            <form method="post" class="d-flex flex-column pt-5 pb-5 ps-4 pe-4 rounded" style="background-color: #F8F8F8;;">
+                {% csrf_token %}
+                <div class="d-flex gap-3">
+                    <div>
+                        <label class="form-label fw-bold" for="nombre">Nombre:</label>
+                        <input class="form-control" type="text" name="nombre" maxlength="50" required>
+                    </div>
+                    <div>
+                        <label class="form-label fw-bold" for="alias">Alias:</label>
+                        <input class="form-control" type="text" name="alias" maxlength="50" required>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-3">
+                    <div>
+                        <label class="form-label fw-bold" for="apellidoPaterno">Apellido Paterno:</label>
+                        <input class="form-control" type="text" name="apellidoPaterno" maxlength="50" required>
+                    </div>
+                    <div>
+                        <label class="form-label fw-bold" for="apellidoMaterno">Apellido Materno:</label>
+                        <input class="form-control" type="text" name="apellidoMaterno" maxlength="50">
+                    </div>
+                </div>
+
+                <div class="d-flex gap-3 ">
+                    <div class="w-50">
+                        <label class="form-label fw-bold" for="relacion">Relación:</label>
+                        <select class="form-select" name="relacion" id="relacion" required>
+                            <option value="">Tipo de Relación</option>
+                            {% for relacion in relaciones %}
+                                <option value="{{ relacion.id }}">{{ relacion.descripcion }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="w-50">
+                        <label class="form-label fw-bold" for="telefono">Teléfono:</label>
+                        <input class="form-control" type="tel" name="telefono" maxlength="10" required>
+                    </div>
+                </div>
+
+                <label class="form-label fw-bold" for="nombre">Correo Electrónico:</label>
+                <input class="form-control" type="email" name="nombre" maxlength="254" required>
+
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

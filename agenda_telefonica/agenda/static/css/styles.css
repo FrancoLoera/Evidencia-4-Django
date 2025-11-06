@@ -1,0 +1,41 @@
+.gato-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+.gato-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../imgs/gato.png");
+    background-size: cover;
+    background-position: center;
+    filter: blur(3px);
+    transform: scale(1.1);
+    z-index: -1;
+}
+
+.title-box {
+    transition: ease 0.4s;
+}
+
+.title-box:hover {
+    scale: 1.05;
+    background: linear-gradient(185deg, #b04e73, #7c304d);
+    border: 4px solid rgba(255, 255, 255, 0.3) !important;
+    color: white !important;
+}
+
+.add-button {
+    background: linear-gradient(185deg, #b04e73, #7c304d); 
+    border: 2px solid white;
+    color: white;
+    transition: ease 0.4s;
+}
+
+.add-button:hover {
+    scale: 1.05;
+    background: linear-gradient(#FFF, #FFF);
+    border: 2px solid #a74e70;
+    color: #a74e70;
+}

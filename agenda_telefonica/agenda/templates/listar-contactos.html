@@ -1,20 +1,23 @@
 {% extends 'base.html' %}
+
 {% block title %}Listar Contactos{% endblock %}
 
 {% block content %}
-<main class="vh-100 d-flex align-items-center" style="background: linear-gradient(135deg, #111217 0%, #05173b 30%, #111217 90%)">
-    <div class="container rounded-3" style="background-color: rgb(6,41,107, 0.5)">
-        <div class="table-responsive shadow-sm rounded mt-3">
+<main class="vh-100 d-flex align-items-center gato-bg">
+    <div class="container rounded-3 d-flex flex-column align-items-center">
+        <h1 class="bg-light d-inline-block fw-bold fs-3 rounded-5 ps-5 pe-5 pt-2 pb-2 m-0 title-box" style="border: 4px solid #a74e70; color: #a74e70;"><i class="bi bi-telephone-fill fs-3 me-2"></i>LISTA DE CONTACTOS</h1>
+        <a class="rounded add-button text-decoration-none fw-medium mt-5" style="padding: 6px 9px;" href=""><i class="fa-solid fa-plus me-2"></i>Agregar Contacto</a>
+        <div class="table-responsive shadow-sm rounded mt-3 w-100">
             <table class="table table-striped table-hover align-middle w-100 mt-0">
-                <thead style="background-color: #111217;">
-                    <th class="fw-normal">Nombre</th>
-                    <th class="fw-normal">Primer Apellido</th>
-                    <th class="fw-normal">Segundo apellido</th>
-                    <th class="fw-normal">Alias</th>
-                    <th class="fw-normal">Relación</th>
-                    <th class="fw-normal">Teléfono</th>
-                    <th class="fw-normal">Correo</th>
-                    <th class="fw-normal"></th>
+                <thead>
+                    <th class="fw-bold">Nombre</th>
+                    <th class="fw-bold">Primer Apellido</th>
+                    <th class="fw-bold">Segundo apellido</th>
+                    <th class="fw-bold">Alias</th>
+                    <th class="fw-bold">Relación</th>
+                    <th class="fw-bold">Teléfono</th>
+                    <th class="fw-bold">Correo</th>
+                    <th class="fw-bold"></th>
                 </thead>
                 <tbody>
                     {% for contacto in contactos %}
@@ -26,7 +29,12 @@
                         <td>{{ contacto.relacion|title }}</td>
                         <td>{{ contacto.telefono|title }}</td>
                         <td>{{ contacto.correo|lower }}</td>
-                        <td><i class="bi bi-pen-fill"></i><i class="bi bi-trash3-fill"></i></td>
+                        <td>
+                            <div class="d-flex">
+                                <a class="bg-warning pt-1 pb-1 ps-2 pe-2 me-3 rounded" href=""><i class="bi bi-pen-fill text-white"></i></a>
+                                <a class="bg-danger pt-1 pb-1 ps-2 pe-2 rounded" href=""><i class="bi bi-trash3-fill text-white"></i></a>
+                            </div>
+                        </td>
                     </tr>
                     {% empty %}
                     <tr>
