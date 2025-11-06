@@ -5,8 +5,8 @@
 {% block content %}
 <main class="vh-100 d-flex align-items-center gato-bg">
     <div class="container rounded-3 d-flex flex-column align-items-center">
-        <h1 class="bg-light d-inline-block fw-bold fs-3 rounded-5 ps-5 pe-5 pt-2 pb-2 m-0 title-box" style="border: 4px solid #a74e70; color: #a74e70;"><i class="bi bi-telephone-fill fs-3 me-2"></i>LISTA DE CONTACTOS</h1>
-        <a class="rounded add-button text-decoration-none fw-medium mt-5" style="padding: 6px 9px;" href=""><i class="fa-solid fa-plus me-2"></i>Agregar Contacto</a>
+        <h1 class="bg-light d-inline-block fw-bold fs-3 rounded-5 ps-5 pe-5 pt-2 pb-2 m-0 title-box" style="border: 4px solid #DFDFDF; color: #0170ab;"><i class="bi bi-telephone-fill fs-3 me-2"></i>LISTA DE CONTACTOS</h1>
+        <a class="rounded add-button text-decoration-none fw-medium mt-3" style="padding: 6px 9px;" href="{% url 'crear-contacto' %}"><i class="fa-solid fa-plus me-2"></i>Registrar Contacto</a>
         <div class="table-responsive shadow-sm rounded mt-3 w-100">
             <table class="table table-striped table-hover align-middle w-100 mt-0">
                 <thead>
@@ -31,8 +31,8 @@
                         <td>{{ contacto.correo|lower }}</td>
                         <td>
                             <div class="d-flex">
-                                <a class="bg-warning pt-1 pb-1 ps-2 pe-2 me-3 rounded" href=""><i class="bi bi-pen-fill text-white"></i></a>
-                                <a class="bg-danger pt-1 pb-1 ps-2 pe-2 rounded" href=""><i class="bi bi-trash3-fill text-white"></i></a>
+                                <a class="bg-warning pt-1 pb-1 ps-2 pe-2 me-3 rounded" href="{% url 'editar-contacto' contacto.id %}"><i class="bi bi-pen-fill text-white"></i></a>
+                                <a class="bg-danger pt-1 pb-1 ps-2 pe-2 rounded" href="{% url 'eliminar-contacto' contacto.id %}" onclick="return confirmar_eliminacion()"><i class="bi bi-trash3-fill text-white"></i></a>
                             </div>
                         </td>
                     </tr>

@@ -21,13 +21,13 @@
 
 .title-box:hover {
     scale: 1.05;
-    background: linear-gradient(185deg, #b04e73, #7c304d);
-    border: 4px solid rgba(255, 255, 255, 0.3) !important;
+    background: linear-gradient(185deg, #009ced, #009ced);
+    border: 4px solid rgba(255, 255, 255, 0.1) !important;
     color: white !important;
 }
 
 .add-button {
-    background: linear-gradient(185deg, #b04e73, #7c304d); 
+    background: linear-gradient(185deg, #e3a360, #c38645); 
     border: 2px solid white;
     color: white;
     transition: ease 0.4s;
@@ -36,6 +36,32 @@
 .add-button:hover {
     scale: 1.05;
     background: linear-gradient(#FFF, #FFF);
-    border: 2px solid #a74e70;
-    color: #a74e70;
+    border: 2px solid #c38645;
+    color: #c38645;
+}
+
+.add-button-dark {
+    background: linear-gradient(185deg, #a74e70, #903e5d); 
+    border: 2px solid white;
+    color: white;
+    transition: ease 0.4s;
+}
+
+.add-button-dark:hover {
+    scale: 1.05;
+    background: linear-gradient(#FFF, #FFF);
+    border: 2px solid #903e5d;
+    color: #903e5d;
+}
+
+.btn-save {
+    transition: ease 0.4s;
+}
+
+.btn-save:hover {
+    scale: 1.05;
+    background-color: white !important;
+    border: 2px solid #009ced;
+    color: #009ced;
+    transition: ease 0.4s;
 }
