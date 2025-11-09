@@ -4,7 +4,7 @@
 {% block title %}Crear Contacto{% endblock %}
 
 {% block content %}
-<main class="vh-100 d-flex align-items-center gato-bg">
+<main class="min-vh-100 d-flex align-items-center gato-bg">
     <div class="container rounded-3 d-flex flex-column align-items-center">
         <h1 class="bg-light d-inline-block fw-bold fs-3 rounded-5 ps-5 pe-5 pt-2 pb-2 m-0 title-box" style="border: 4px solid #DFDFDF; color: #0170ab;"><i class="fa-solid fa-plus me-2"></i>REGISTRAR CONTACTO</h1>
         <a class="rounded add-button text-decoration-none fw-medium mt-3 mb-3" style="padding: 6px 9px;" href="{% url 'listar-contactos' %}"><i class="fa-solid fa-magnifying-glass me-2"></i>Lista de Contactos</a>
@@ -12,8 +12,8 @@
         <div class="form-container">
             <form method="post" class="d-flex flex-column pt-5 pb-5 ps-4 pe-4 rounded" style="background-color: #F8F8F8;">
                 {% csrf_token %}
-                <div class="text-center pb-5">
-                    <img src="{% static 'imgs/Gato-gif.gif' %}" style="width: 40%;">
+                <div class="text-center pb-4">
+                    <img src="{% static 'imgs/Gato-gif.gif' %}" style="width: 30%;">
                 </div>
                 <div class="d-flex gap-3">
                     <div class="w-50">
@@ -22,7 +22,7 @@
                     </div>
                     <div class="w-50">
                         <label class="mb-0 form-label fw-bold" for="alias">Alias:</label>
-                        <input class="mb-3 form-control" type="text" name="alias" maxlength="50" required>
+                        <input class="mb-3 form-control" type="text" name="alias" maxlength="50">
                     </div>
                 </div>
 
@@ -54,7 +54,7 @@
                 </div>
 
                 <label class="mb-0 form-label fw-bold" for="correo">Correo Electrónico:</label>
-                <input class="mb-5 form-control" type="email" name="correo" maxlength="254" required>
+                <input class="mb-5 form-control" type="email" name="correo" maxlength="254">
 
                 {% if messages %}
                     {% for message in messages %}

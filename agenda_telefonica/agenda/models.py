@@ -6,6 +6,12 @@ class Relacion(models.Model):
     
     def __str__(self):
         return self.descripcion
+    
+    def save(self, *args, **kwargs):
+        if self.descripcion:
+            self.descripcion = self.descripcion.upper()
+            
+        super().save(*args, **kwargs)
 
 class Contacto(models.Model):
     nombre = models.CharField(max_length = 50)

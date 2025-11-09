@@ -15,28 +15,28 @@
         <div class="form-container">
             <form method="post" class="d-flex flex-column pt-5 pb-5 ps-4 pe-4 rounded" style="background-color: #F8F8F8;">
                 {% csrf_token %}
-                <div class="text-center pb-5">
-                    <img src="{% static 'imgs/edit-gif.gif' %}" style="width: 40%;">
+                <div class="text-center pb-4">
+                    <img src="{% static 'imgs/edit-gif.gif' %}" style="width: 30%;">
                 </div>
                 <div class="d-flex gap-3">
                     <div class="w-50">
                         <label class="mb-0 form-label fw-bold" for="nombre">Nombre:</label>
-                        <input class="mb-3 form-control" type="text" name="nombre" maxlength="50" required value="{{ contacto.nombre|title }}">
+                        <input class="mb-3 form-control" type="text" name="nombre" maxlength="50" required value="{{ contacto.nombre }}">
                     </div>
                     <div class="w-50">
                         <label class="mb-0 form-label fw-bold" for="alias">Alias:</label>
-                        <input class="mb-3 form-control" type="text" name="alias" maxlength="50" required value="{{ contacto.alias|title }}">
+                        <input class="mb-3 form-control" type="text" name="alias" maxlength="50" value="{{ contacto.alias }}">
                     </div>
                 </div>
 
                 <div class="d-flex gap-3">
                     <div class="w-50">
                         <label class="mb-0 form-label fw-bold" for="apellidoPaterno">Apellido Paterno:</label>
-                        <input class="mb-3 form-control" type="text" name="apellidoPaterno" maxlength="50" required value="{{ contacto.primerApellido|title }}">
+                        <input class="mb-3 form-control" type="text" name="apellidoPaterno" maxlength="50" required value="{{ contacto.primerApellido }}">
                     </div>
                     <div class="w-50">
                         <label class="mb-0 form-label fw-bold" for="apellidoMaterno">Apellido Materno:</label>
-                        <input class="mb-3 form-control" type="text" name="apellidoMaterno" maxlength="50" value="{{ contacto.segundoApellido|title }}">
+                        <input class="mb-3 form-control" type="text" name="apellidoMaterno" maxlength="50" value="{{ contacto.segundoApellido }}">
                     </div>
                 </div>
 
@@ -57,7 +57,7 @@
                 </div>
 
                 <label class="mb-0 form-label fw-bold" for="correo">Correo Electrónico:</label>
-                <input class="mb-5 form-control" type="email" name="correo" maxlength="254" required value="{{ contacto.correo|lower }}">
+                <input class="mb-5 form-control" type="email" name="correo" maxlength="254" value="{{ contacto.correo }}">
 
                 {% if messages %}
                     {% for message in messages %}

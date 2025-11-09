@@ -20,10 +20,10 @@ def crear_contacto(request):
         telefono = request.POST["telefono"]
         correo = request.POST.get("correo", "")
 
-        if Contacto.objects.filter(telefono = telefono).exists():
+        if Contacto.objects.filter(telefono__iexact=telefono).exists():
             messages.error(request, "El teléfono ya está registrado.")
 
-        elif Contacto.objects.filter(correo = correo).exists():
+        elif Contacto.objects.filter(correo__iexact=correo).exists():
             messages.error(request, "El correo ya está registrado.")
 
         else:
@@ -47,8 +47,16 @@ def editar_contacto(request, id):
         if relacion_id:
             contacto.relacion = Relacion.objects.get(id = relacion_id)
 
-        contacto.save()
-        return redirect('listar-contactos')
+        if Contacto.objects.filter(telefono__iexact=contacto.telefono).exclude(id=contacto.id).exists():
+            messages.error(request, "El teléfono ya está registrado.")
+
+        elif Contacto.objects.filter(correo__iexact=contacto.correo).exclude(id=contacto.id).exists():
+            messages.error(request, "El correo ya está registrado.")
+
+        else:
+            contacto.save()
+            return redirect('listar-contactos')
+        
     relaciones = Relacion.objects.all()
     return render(request, 'editar-contacto.html', {'contacto': contacto, 'relaciones': relaciones})
 
